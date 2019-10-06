@@ -28,7 +28,7 @@ namespace CHESS
         public Game()
         {
             ChessBoardGeneral = new ChessBoard();
-            Trait = Color.White;
+            Trait = Color.Black;
             IsEnded = false;
             ChessBoardGeneral.PrintChessBoard();
             Console.WriteLine(ChessBoardGeneral.Board[1, 2].XYCoords()[1]);
@@ -43,7 +43,7 @@ namespace CHESS
                 // Copy the right board to a tmp
                 ChessBoard boardTmp = ChessBoardGeneral;
                 // First move the piece on the tmp board, and assign it to a new board
-                ChessBoard newBoardTmp = ChessBoardGeneral.Board[3, 0].PieceBoard.MovePiece(boardTmp, ChessBoardGeneral.Board[3, 0].XYCoords(), new int[] { 6, 0 });
+                ChessBoard newBoardTmp = ChessBoardGeneral.Board[3, 0].PieceBoard.MovePiece(boardTmp, ChessBoardGeneral.Board[3, 0].XYCoords(), new int[] { 3, 6 });
                 // newboard = right board
 
                 if (newBoardTmp != null)

@@ -45,6 +45,7 @@
     <Compile Include="Case.cs" />
     <Compile Include="ChessBoard.cs" />
     <Compile Include="Color.cs" />
+    <Compile Include="Coord.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Pieces\Bishop.cs" />
     <Compile Include="Pieces\EmptyPiece.cs" />

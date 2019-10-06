@@ -36,5 +36,10 @@ namespace CHESS
                    actualValue == expectedValue;
         }
 
+        public bool ObjectContainsValue(List<Coord> posibleCoords, Coord desired)
+        {
+            return posibleCoords.Any(x => x.CoordX == desired.CoordX && x.CoordY == desired.CoordY);
+        }
+
     }
 }
