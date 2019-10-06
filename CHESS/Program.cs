@@ -11,10 +11,9 @@ namespace CHESS
         static void Main(string[] args)
         {
 
-
             Game game = new Game();
 
-            while (true) ;
+            while (!game.IsEnded) ;
         }
     }
 }

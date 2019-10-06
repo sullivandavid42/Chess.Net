@@ -47,6 +47,7 @@
     <Compile Include="Color.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Pieces\Bishop.cs" />
+    <Compile Include="Pieces\EmptyPiece.cs" />
     <Compile Include="Pieces\King.cs" />
     <Compile Include="Piece.cs" />
     <Compile Include="Pieces\Knight.cs" />
