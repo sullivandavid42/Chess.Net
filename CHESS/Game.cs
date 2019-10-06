@@ -38,12 +38,12 @@ namespace CHESS
 
         public void MakeATurn()
         {
-            if (ChessBoardGeneral.Board[7, 0].PieceBoard.Color == Trait)
+            if (ChessBoardGeneral.Board[3, 0].PieceBoard.Color == Trait)
             {
                 // Copy the right board to a tmp
                 ChessBoard boardTmp = ChessBoardGeneral;
                 // First move the piece on the tmp board, and assign it to a new board
-                ChessBoard newBoardTmp = ChessBoardGeneral.Board[7, 0].PieceBoard.MovePiece(boardTmp, ChessBoardGeneral.Board[7, 0].XYCoords(), new int[] { 3, 0 });
+                ChessBoard newBoardTmp = ChessBoardGeneral.Board[3, 0].PieceBoard.MovePiece(boardTmp, ChessBoardGeneral.Board[3, 0].XYCoords(), new int[] { 6, 0 });
                 // newboard = right board
 
                 if (newBoardTmp != null)

@@ -44,23 +44,47 @@ namespace CHESS
             {
                 if (coord[0] != desiredCoord[0]) // If move on row
                 {
-                    int y = 1;
-                    for (int i = coord[0]; i > desiredCoord[0]; i--)
+                    if (coord[0] > desiredCoord[0]) // If rook below target
                     {
-                        if (board.IsCaseEmpty(coord[0] - y, coord[1]))
+                        int y = 1;
+                        for (int i = coord[0]; i > desiredCoord[0]; i--)
                         {
-                            availablePos.Add(coord[0] - y, coord[1]);
-                            y++;
+                            if (board.IsCaseEmpty(coord[0] - y, coord[1]))
+                            {
+                                availablePos.Add(coord[0] - y, coord[1]);
+                                y++;
+                            }
+                            else if (board.ContainsEnemyPiece(coord[0] - y, coord[1], Color))
+                            {
+                                availablePos.Add(coord[0] - y, coord[1]);
+                                break;
+                            }
+                            else
+                                break;
                         }
-                        else if (board.ContainsEnemyPiece(coord[0] - y, coord[1], Color))
+                    } else // Rook upper target
+                    {
+                        int y = 1;
+                        for (int i = coord[0]; i < desiredCoord[0]; i++)
                         {
-                            availablePos.Add(coord[0] - y, coord[1]);
-                            break;
+                            if (board.IsCaseEmpty(coord[0] + y, coord[1]))
+                            {
+                                availablePos.Add(coord[0] + y, coord[1]);
+                                y++;
+                            }
+                            else if (board.ContainsEnemyPiece(coord[0] + y, coord[1], Color))
+                            {
+                                availablePos.Add(coord[0] + y, coord[1]);
+                                break;
+                            }
+                            else
+                                break;
                         }
-                        else
-                            break;
                     }
                 }
+            } else // Color.Black
+            {
+
             }
 
             if (ContainsKeyValue(availablePos, desiredCoord[0], desiredCoord[1]))
