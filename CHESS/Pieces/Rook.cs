@@ -44,9 +44,9 @@ namespace CHESS
             {
                 if (coord[0] != desiredCoord[0]) // If move on row
                 {
+                    int y = 1;
                     for (int i = coord[0]; i > desiredCoord[0]; i--)
                     {
-                        int y = 1;
                         if (board.IsCaseEmpty(coord[0] - y, coord[1]))
                         {
                             availablePos.Add(coord[0] - y, coord[1]);
@@ -68,8 +68,10 @@ namespace CHESS
                 Piece tmpPiece = board.GetCaseAtPos(coord[0], coord[1]).PieceBoard;
                 board.Board[coord[0], coord[1]].PieceBoard = new EmptyPiece();
                 board.Board[desiredCoord[0], desiredCoord[1]].PieceBoard = tmpPiece;
+                return board;
             }
-            return board;
+            else
+                return null;
         }
     }
 }

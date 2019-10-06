@@ -91,8 +91,9 @@ namespace CHESS
                 Piece tmpPiece = board.GetCaseAtPos(coord[0], coord[1]).PieceBoard;
                 board.Board[coord[0], coord[1]].PieceBoard = new EmptyPiece();
                 board.Board[desiredCoord[0], desiredCoord[1]].PieceBoard = tmpPiece;
+                return board;
             }
-            return board;
+            return null;
         }
     }
 }
