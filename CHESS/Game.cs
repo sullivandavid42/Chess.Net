@@ -30,32 +30,19 @@ namespace CHESS
             ChessBoardGeneral = new ChessBoard();
             Trait = Color.White;
             IsEnded = false;
-            MakeTurn(ChessBoardGeneral.Board[6, 0], new int[] { 7, 0 });
-            ChessBoardGeneral.PrintChessBoard();
-        }
-
-        public void MakeATurn()
-        {
-            if (ChessBoardGeneral.Board[3, 0].PieceBoard.Color == Trait)
+            
+            // Play a real move from user input. This is just for test cases and interoperability
+            int[,] coord = AskUserSourceDest();
+            MakeTurn(ChessBoardGeneral.Board[coord[0, 0], coord[0, 1]], new int[]
             {
-                // Copy the right board to a tmp
-                ChessBoard boardTmp = ChessBoardGeneral;
-                // First move the piece on the tmp board, and assign it to a new board
-                // Just to test
-                ChessBoard newBoardTmp = ChessBoardGeneral.Board[3, 0].PieceBoard.MovePiece(boardTmp, ChessBoardGeneral.Board[3, 0].XYCoords(), new int[] { 3, 6 });
-
-                if (newBoardTmp != null)
-                {
-                    ChessBoardGeneral = newBoardTmp;
-                    this.UpdateTrait();
-                }
-                else
-                    MakeATurn();
-
-
-            }
+                coord[1, 0], coord[1, 1]
+            });
         }
 
+
+        /*
+         * Need to choose a right way to move, either we go with int[] or with a Case for source and dest both
+         */
         public bool MakeTurn(Case source, int[] dest)
         {
             ChessBoard boardTmp = ChessBoardGeneral;
@@ -67,6 +54,7 @@ namespace CHESS
             {
                 ChessBoardGeneral = newBoardTmp;
                 this.UpdateTrait();
+                ChessBoardGeneral.PrintChessBoard();
                 return true;
             }
             else
@@ -75,6 +63,22 @@ namespace CHESS
                 // SHOULD ASK NEW COORD
                 return false;
             }
+        }
+
+
+        private int[,] AskUserSourceDest()
+        {
+            Console.WriteLine("Enter coordinate -> 0;0/0;1  :");
+            string input = Console.ReadLine();
+            int[,] inputCoordinates = new int[,] {
+                { (int)Char.GetNumericValue(input[0]), (int)Char.GetNumericValue(input[2]) },
+                { (int)Char.GetNumericValue(input[4]), (int)Char.GetNumericValue(input[6]) }
+            };
+
+            if (inputCoordinates.Length != 3)
+                return inputCoordinates;
+            else
+                return AskUserSourceDest();
         }
 
         public void UpdateTrait()
