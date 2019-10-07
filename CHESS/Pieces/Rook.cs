@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CHESS
 {
-    class Rook : Piece
+    public class Rook : Piece
     {
         public Rook(Color color)
         {
