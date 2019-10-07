@@ -5,6 +5,9 @@ A .Net Chess Move Validator library
 - Pieces classes
 - Pawn and Rook movement validation
 - ChessBoard class (composed by 8*8 Case objects)
+- Console user input reader for developement testing (move pieces through chessboard)
+- Unit tests
+      -> For Pawns
 
 ### To Do
 - Refacto Rook movement
@@ -12,4 +15,3 @@ A .Net Chess Move Validator library
 - King movement
 - Bishop movement
 - Knight movement
-- Unit tests
