@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CHESS
 {
-    class Game
+    public class Game
     {
         public ChessBoard ChessBoardGeneral
         {
@@ -30,8 +30,7 @@ namespace CHESS
             ChessBoardGeneral = new ChessBoard();
             Trait = Color.White;
             IsEnded = false;
-            ChessBoardGeneral.PrintChessBoard();
-            this.MakeATurn();
+            MakeTurn(ChessBoardGeneral.Board[6, 0], new int[] { 7, 0 });
             ChessBoardGeneral.PrintChessBoard();
         }
 
@@ -54,6 +53,27 @@ namespace CHESS
                     MakeATurn();
 
 
+            }
+        }
+
+        public bool MakeTurn(Case source, int[] dest)
+        {
+            ChessBoard boardTmp = ChessBoardGeneral;
+
+            ChessBoard newBoardTmp = ChessBoardGeneral.Board[source.CoordX, source.CoordY].PieceBoard
+                .MovePiece(boardTmp, ChessBoardGeneral.Board[source.CoordX, source.CoordY].XYCoords(), dest);
+
+            if (newBoardTmp != null)
+            {
+                ChessBoardGeneral = newBoardTmp;
+                this.UpdateTrait();
+                return true;
+            }
+            else
+            {
+                // MakeTurn(source, dest);
+                // SHOULD ASK NEW COORD
+                return false;
             }
         }
 
