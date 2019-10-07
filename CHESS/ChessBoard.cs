@@ -80,5 +80,17 @@ namespace CHESS
                 return true;
 
         }
+
+        public override bool Equals(object obj)
+        {
+            var board = obj as ChessBoard;
+            return board != null &&
+                   EqualityComparer<Case[,]>.Default.Equals(Board, board.Board);
+        }
+
+        public override int GetHashCode()
+        {
+            return -354184573 + EqualityComparer<Case[,]>.Default.GetHashCode(Board);
+        }
     }
 }
