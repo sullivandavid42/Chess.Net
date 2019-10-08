@@ -32,11 +32,11 @@ namespace CHESS
             IsEnded = false;
             
             // Play a real move from user input. This is just for test cases and interoperability
-            int[,] coord = AskUserSourceDest();
-            MakeTurn(ChessBoardGeneral.Board[coord[0, 0], coord[0, 1]], new int[]
-            {
-                coord[1, 0], coord[1, 1]
-            });
+            //int[,] coord = AskUserSourceDest();
+            //MakeTurn(ChessBoardGeneral.Board[coord[0, 0], coord[0, 1]], new int[]
+            //{
+            //    coord[1, 0], coord[1, 1]
+            //});
         }
 
 
