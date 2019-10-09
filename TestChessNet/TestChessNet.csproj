@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="TestGame.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestMoves_Knight.cs" />
     <Compile Include="TestMoves_Pawn.cs" />
     <Compile Include="TestMoves_Rook.cs" />
   </ItemGroup>

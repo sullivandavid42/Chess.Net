@@ -38,8 +38,6 @@ namespace CHESS
             
         public override ChessBoard MovePiece(ChessBoard board, int[] coord, int[] desiredCoord)
         {
-            Dictionary<int, int> availablePos = new Dictionary<int, int>();
-
             Coord desCoord = new Coord { CoordX = desiredCoord[0], CoordY = desiredCoord[1] };
             List<Coord> pos = new List<Coord>();
 
